@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ahori — Web design and development</title>
+<meta name="description" content="Ahori is the studio name of Zahra Cheraghchi. Property and small-business websites, designed and built end to end.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#E4E2DC;
+    --card:#F2F1ED;
+    --ink:#1A1A17;
+    --blue:#1E3A63;
+    --muted:#6E6B64;
+    --rule:#C9C6BE;
+    --measure:62ch;
+  }
+
+  *{box-sizing:border-box}
+
+  html{ -webkit-text-size-adjust:100% }
+
+  body{
+    margin:0;
+    background-color:var(--paper);
+    /* graph paper */
+    background-image:
+      linear-gradient(to right, rgba(30,58,99,.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(30,58,99,.07) 1px, transparent 1px);
+    background-size:28px 28px;
+    color:var(--ink);
+    font-family:"Archivo", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    font-size:17px;
+    line-height:1.6;
+  }
+
+  .wrap{
+    max-width:1040px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  a{color:var(--blue)}
+
+  a:focus-visible,
+  button:focus-visible{
+    outline:2px solid var(--blue);
+    outline-offset:3px;
+  }
+
+  /* ---------- header ---------- */
+
+  .masthead{ padding:88px 0 40px }
+
+  .brand{
+    margin:0;
+    font-size:clamp(3.6rem, 13vw, 7.5rem);
+    font-weight:700;
+    letter-spacing:-.045em;
+    line-height:.9;
+  }
+
+  .brand-rule{
+    height:2px;
+    background:var(--blue);
+    margin:26px 0 22px;
+  }
+
+  .who{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 28px;
+    font-size:.95rem;
+    color:var(--muted);
+    margin-bottom:34px;
+  }
+
+  .who strong{
+    color:var(--ink);
+    font-weight:600;
+  }
+
+  .lede{
+    max-width:var(--measure);
+    font-size:clamp(1.1rem, 2.4vw, 1.35rem);
+    line-height:1.5;
+    margin:0;
+  }
+
+  /* ---------- sections ---------- */
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:16px;
+    border-top:1px solid var(--rule);
+    padding-top:14px;
+    margin:72px 0 30px;
+  }
+
+  .section-head h2{
+    margin:0;
+    font-size:1.05rem;
+    font-weight:600;
+    letter-spacing:-.01em;
+  }
+
+  .section-head span{
+    font-size:.9rem;
+    color:var(--muted);
+  }
+
+  /* ---------- project listings ---------- */
+
+  .listings{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:36px 28px;
+  }
+
+  .listing{
+    background:var(--card);
+    border:1px solid var(--rule);
+    display:flex;
+    flex-direction:column;
+  }
+
+  .shot{
+    position:relative;
+    aspect-ratio:16/10;
+    background:#DAD7D1;
+    overflow:hidden;
+  }
+
+  .shot img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:top center;
+    display:block;
+  }
+
+  .tag{
+    position:absolute;
+    top:12px;
+    left:12px;
+    background:rgba(26,26,23,.82);
+    color:#F2F1ED;
+    font-size:.72rem;
+    font-weight:500;
+    padding:4px 9px;
+    border-radius:2px;
+  }
+
+  .listing-body{
+    padding:20px 20px 22px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+  }
+
+  .place{
+    font-size:.85rem;
+    color:var(--muted);
+    margin:0 0 4px;
+  }
+
+  .listing-body h3{
+    margin:0 0 12px;
+    font-size:1.28rem;
+    font-weight:600;
+    letter-spacing:-.02em;
+    line-height:1.25;
+  }
+
+  .listing-body p{
+    margin:0 0 18px;
+    font-size:.95rem;
+    line-height:1.55;
+    color:#3A3934;
+  }
+
+  /* spec row — mirrors a property card's bed / bath / m² */
+  .specs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px 26px;
+    border-top:1px solid var(--rule);
+    padding-top:14px;
+    margin-top:auto;
+  }
+
+  .spec-k{
+    display:block;
+    font-size:.74rem;
+    color:var(--muted);
+    margin-bottom:1px;
+  }
+
+  .spec-v{
+    display:block;
+    font-size:.92rem;
+    font-weight:500;
+  }
+
+  .watch{
+    display:inline-block;
+    margin-top:18px;
+    font-size:.92rem;
+    font-weight:500;
+    color:var(--blue);
+    text-decoration:none;
+    border-bottom:1.5px solid var(--blue);
+    padding-bottom:2px;
+  }
+
+  .watch:hover{ color:var(--ink); border-color:var(--ink) }
+
+  /* ---------- contact ---------- */
+
+  .contact{
+    margin:80px 0 0;
+    padding:40px 0 0;
+    border-top:2px solid var(--blue);
+  }
+
+  .contact p{
+    max-width:var(--measure);
+    margin:0 0 22px;
+    font-size:1.1rem;
+  }
+
+  .contact-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 34px;
+    font-size:1.05rem;
+    font-weight:500;
+  }
+
+  footer{
+    margin-top:64px;
+    padding:20px 0 56px;
+    border-top:1px solid var(--rule);
+    font-size:.85rem;
+    color:var(--muted);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; animation:none !important }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <h1 class="brand">Ahori</h1>
+    <div class="brand-rule"></div>
+    <div class="who">
+      <span><strong>Zahra Cheraghchi</strong></span>
+      <span>Web design and development</span>
+      <span>Tehran</span>
+    </div>
+    <p class="lede">
+      I design and build websites for property agencies and small businesses —
+      the full interface, the page structure, and search that people can actually use.
+    </p>
+  </header>
+
+  <main>
+
+    <div class="section-head">
+      <h2>Selected work</h2>
+      <span>3 projects</span>
+    </div>
+
+    <div class="listings">
+
+      <!-- 1 -->
+      <article class="listing">
+        <div class="shot">
+          <img src="images/apadana.png" alt="Apadana Emirates home page, showing the property search panel and featured listings">
+          <span class="tag">Personal project</span>
+        </div>
+        <div class="listing-body">
+          <p class="place">Luxury property agency, UAE</p>
+          <h3>Apadana Emirates</h3>
+          <p>
+            A calm, minimal interface for a Dubai property agency. Three languages,
+            automatic currency conversion, and a search engine that filters by
+            destination, property type, bedrooms and budget.
+          </p>
+          <div class="specs">
+            <div><span class="spec-k">Built with</span><span class="spec-v">WordPress, Elementor</span></div>
+            <div><span class="spec-k">Languages</span><span class="spec-v">3</span></div>
+            <div><span class="spec-k">Currency</span><span class="spec-v">Auto-converted</span></div>
+          </div>
+          <a class="watch" href="YOUTUBE_LINK_APADANA">Watch the walkthrough</a>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="listing">
+        <div class="shot">
+          <img src="images/ashiyoune.png" alt="Ashiyoune home page, showing the right-to-left Persian search form">
+          <span class="tag">Personal project</span>
+        </div>
+        <div class="listing-body">
+          <p class="place">Property marketplace, Iran</p>
+          <h3>Ashiyoune</h3>
+          <p>
+            A right-to-left Persian marketplace for buying and renting homes.
+            Separate tabs for each deal type, filters down to neighbourhood and
+            floor area, agent profiles, and a map-based search.
+          </p>
+          <div class="specs">
+            <div><span class="spec-k">Built with</span><span class="spec-v">WordPress, Elementor</span></div>
+            <div><span class="spec-k">Direction</span><span class="spec-v">Right to left</span></div>
+            <div><span class="spec-k">Search</span><span class="spec-v">Map-based</span></div>
+          </div>
+          <a class="watch" href="YOUTUBE_LINK_ASHIYOUNE">Watch the walkthrough</a>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="listing">
+        <div class="shot">
+          <img src="images/gazaltoy.png" alt="GazalToy home page with a hexagonal navigation menu">
+          <span class="tag">Coursework</span>
+        </div>
+        <div class="listing-body">
+          <p class="place">Toy shop</p>
+          <h3>GazalToy</h3>
+          <p>
+            A multi-page toy shop site written directly in code, with no content
+            management system behind it. Hexagonal navigation, a sign-in form,
+            and a right-to-left Persian layout — all built by hand.
+          </p>
+          <div class="specs">
+            <div><span class="spec-k">Built with</span><span class="spec-v">HTML, CSS, JavaScript</span></div>
+            <div><span class="spec-k">CMS</span><span class="spec-v">None</span></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <section class="contact">
+      <p>Available for new projects — property sites, storefronts, and small-business pages.</p>
+      <div class="contact-links">
+        <a href="mailto:YOUR_EMAIL">YOUR_EMAIL</a>
+        <a href="https://instagram.com/YOUR_INSTAGRAM">Instagram</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Ahori — design and development by Zahra Cheraghchi
+  </footer>
+
+</div>
+
+</body>
+</html>
